@@ -3,24 +3,44 @@
 <head><title>MUSICIAN ROCKBAND</title></head>
  
 <body>
+    
 <h1 style="font-style: italic;">Musician guess by <span style="color: rgb(130, 20, 220);">LOHITHA JULAKANTI</span></h1>   
 <h2>Getting input</h2>
 <form>
     <label for="form_name">Enter the secret musician name:</label>
-
     <input type ="password" id="form_name" name="form_name" min=10 max=50 step=2 value="John Lennon"> <br>
-
     <label for="form_guess">Guess the musician:</label>
-
     <input type ="text" id="form_guess" name="form_guess" autofocus> <br>
-
     <input type="button" onclick="checkGuess()" value="Check the Guess">
-
 </form>
+<div class="container">
+
+    <img class="img-fluid" id="image" src="ants.jpg" style="width: 100px; height: 100px" onclick="swapImage()">
+
+</div>
 <script>
     var correct = 0
     var wrong = 0
-    
+    var useImage = 1;
+        function swapImage(){
+            switch(useImage){
+                case 1:
+                    document.getElementById("image").src = "ants.jpg";
+                    useImage+=1;
+                    break;
+                case 2:
+                    document.getElementById("image").src = "Junebug.jpg";
+                    useImage+=1;
+                    break;
+                case 3:
+                    document.getElementById("image").src = "Larva.jpg";
+                    useImage=1;
+                    break;
+                default:
+                    document.getElementById("image").src = "ants.jpg";
+                    break;
+            }
+        }
     function checkGuess(){
     console.log("Getting form values")
     Name = document.getElementById("form_name").value
